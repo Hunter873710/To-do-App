@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ToDoApp</string>
+    <string name="upcoming_tasks">Today Tasks</string>
+    <string name="category_name">Category Name</string>
+    <string name="category_description">Category Description</string>
+    <string name="add">ADD</string>
+    <string name="task_name">Task Name</string>
+    <string name="task_description">Task Description</string>
+    <string name="notification_task_name">Task_Name</string>
+    <string name="notification_task_description">Task_Description</string>
+    <string name="task_id">Task Id</string>
+    <string name="save">Save</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="welcome">Welcome</string>
+    <string name="today_prograss">Today Prograss</string>
+</resources>
