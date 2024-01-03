@@ -55,6 +55,7 @@ fun HomeScreenNavigation(presenter : HomeScreenPresenter) {
                 navController.popBackStack()
             } , addTask = { taskName , taskDes , date , time->
                 presenter.insertTask(TaskDataModel(
+                    id = System.currentTimeMillis() ,
                     taskName = taskName ,
                     description = taskDes ,
                     date = date,

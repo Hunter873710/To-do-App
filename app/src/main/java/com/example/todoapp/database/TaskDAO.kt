@@ -33,9 +33,6 @@ interface TaskDAO {
     @Query("DELETE FROM TaskList WHERE id = :taskId")
     fun deleteTask(taskId: Long)
 
-    @Query("SELECT id FROM TaskList WHERE taskName == :taskName AND description = :description")
-    fun getId (taskName : String , description : String) : Long
-
     @Query("UPDATE TaskList SET `action` = :action WHERE id = :taskId")
     fun updateTaskStatus(action : Boolean , taskId : Long)
 }

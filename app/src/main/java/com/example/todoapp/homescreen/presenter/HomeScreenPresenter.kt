@@ -114,13 +114,9 @@ class HomeScreenPresenter(private var database : TaskDatabase) : ViewModel() {
     fun insertTask(model: TaskDataModel, context: Context) {
         viewModelScope.launch(Dispatchers.IO){
             database.getTaskDao().insertTask(model)
-            val id = database.getTaskDao().getId(model.taskName , model.description)
             AlarmScheduler.schedule(
                 context ,
-                LocalDateTime.of(model.date , model.time) ,
-                model.taskName ,
-                model.description ,
-                id
+                model
             )
         }
     }
