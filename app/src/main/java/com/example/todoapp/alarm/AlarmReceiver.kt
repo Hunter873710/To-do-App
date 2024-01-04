@@ -45,7 +45,7 @@ class AlarmReceiver : BroadcastReceiver() {
                     Manifest.permission.POST_NOTIFICATIONS
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
-                NotificationManagerCompat.from(context)?.notify(1 , notification)
+                NotificationManagerCompat.from(context).notify(1 , notification)
             }
         }
     }
