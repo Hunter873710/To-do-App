@@ -27,5 +27,5 @@ abstract class TaskDatabase : RoomDatabase() {
 
     abstract fun getCategoryDao() : CategoryDao
 
-    abstract fun getUserInfo() : UserInfoDao
+    abstract fun getUserInfoDao() : UserInfoDao
 }

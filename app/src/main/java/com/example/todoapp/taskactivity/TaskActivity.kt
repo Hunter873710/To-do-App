@@ -1,11 +1,8 @@
 package com.example.todoapp.taskactivity
 
-import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
@@ -19,9 +16,7 @@ import com.example.todoapp.taskactivity.presenter.TaskPresenter
 
 
 class TaskActivity : ComponentActivity() {
-    @RequiresApi(Build.VERSION_CODES.O)
     lateinit var presenter: TaskPresenter
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val id = this.intent?.extras?.getLong(this.getString(R.string.task_id) , 0 ) ?: 0

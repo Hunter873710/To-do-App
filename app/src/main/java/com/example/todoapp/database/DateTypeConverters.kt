@@ -14,7 +14,7 @@ class DateTypeConverter {
 
     @TypeConverter
     fun longToLocalDate(localDate: Long): LocalDate? {
-        return localDate?.let {
+        return localDate.let {
             LocalDate.ofEpochDay(localDate)
         }
     }

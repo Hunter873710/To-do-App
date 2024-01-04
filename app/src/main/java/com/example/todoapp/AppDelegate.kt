@@ -4,8 +4,9 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import androidx.core.app.ActivityCompat
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class AppDelegate : Application() {
     companion object {
         const val notificationChannel = "ToDoAppChannel"
