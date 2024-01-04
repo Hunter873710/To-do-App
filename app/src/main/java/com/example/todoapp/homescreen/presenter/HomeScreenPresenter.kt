@@ -8,7 +8,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.todoapp.alarm.AlarmScheduler
 import com.example.todoapp.database.Category
@@ -16,12 +15,14 @@ import com.example.todoapp.database.TaskDataModel
 import com.example.todoapp.database.TaskDatabase
 import com.example.todoapp.database.UserInfo
 import com.example.todoapp.storage.storeFile
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.time.LocalDateTime
+import javax.inject.Inject
 
-class HomeScreenPresenter(private var database : TaskDatabase) : ViewModel() {
+@HiltViewModel
+class HomeScreenPresenter @Inject constructor(var database : TaskDatabase) : ViewModel() {
 
     var categoryList by mutableStateOf(mutableListOf<Category>())
     var taskList by mutableStateOf(mutableListOf<TaskDataModel>())
@@ -30,16 +31,6 @@ class HomeScreenPresenter(private var database : TaskDatabase) : ViewModel() {
     var taskProgress by mutableStateOf(1 to 1)
     var todayTaskList : List<TaskDataModel> by mutableStateOf(listOf())
     var taskList_Product : Job? = null
-
-    companion object {
-        fun getFactory(database: TaskDatabase) : ViewModelProvider.Factory {
-            return object : ViewModelProvider.Factory {
-                override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                    return HomeScreenPresenter(database) as T
-                }
-            }
-        }
-    }
 
     init {
         getUserInfo()
