@@ -1,5 +1,6 @@
 package com.example.todoapp.homescreen.view
 
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -70,9 +71,13 @@ fun HomeScreenNavigation(presenter : HomeScreenPresenter) {
 
         composable(ToDoApp.USER_INFO.name){
             WelcomePage(onSave = { name , uri ->
-                presenter.insertUserInfo(name , uri , context)
-                navController.popBackStack()
-                navController.navigate(ToDoApp.HOME_SCREEN.name)
+                if(name.isEmpty()) {
+                    Toast.makeText(context, "Please Enter Valid Name", Toast.LENGTH_LONG).show()
+                } else {
+                    presenter.insertUserInfo(name, uri, context)
+                    navController.popBackStack()
+                    navController.navigate(ToDoApp.HOME_SCREEN.name)
+                }
             })
         }
     }
